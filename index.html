@@ -5,43 +5,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Clicking Game for bordom">
-    <meta name="keywords" content="Clicking Game">
-    <meta name="author" content="lol.andrew">
-    <link rel="icon" type="image/x-icon" href="assets/imgs/favicon.ico" />
-    <title>Clicking Game</title>
+    <meta name="description" content="An engaging click-based game for entertainment">
+    <meta name="keywords" content="Clicking Game, Entertainment, Fun">
+    <meta name="author" content="Your Name">
+    <link rel="icon" type="image/png" href="assets/imgs/favicon.png">
+    <title>Modern Clicking Game</title>
     <style>
+        body {
+            background-color: #333;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
         #menu-toggle {
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 10px;
-            background-color: black;
-            border: 1px solid white;
-            border-radius: 5px;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 100;
+        }
+
+        canvas {
+            width: 100%;
+            height: 80vh;
+            display: block;
+            margin: auto;
         }
     </style>
 </head>
 
-<body class="app-body" style="background-color: black; overflow: hidden;">
-    <div id="root">
-        <div id="click_counter" style="color: white;">
-            <p>Clicks: <span id="clicks">0</span>
-
-            </p>
+<body>
+    <div class="container">
+        <h1 class="my-4">Clicking Game</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card bg-dark text-white mb-4">
+                    <div class="card-header">Game Stats</div>
+                    <div class="card-body">
+                        <p>Clicks: <span id="clicks">0</span></p>
+                        <p>Multiplier: <span id="multiplier_value">1x</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="multiplier" style="color: white;">
-            <p>Multiplier: <span id="multiplier_value">1</span></p>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card bg-dark text-white">
+                    <div class="card-header">Shop</div>
+                    <div class="card-body">
+                        <button id="buy" class="btn btn-primary">Buy Multiplier (+1)</button>
+                        <p class="mt-2">Cost: <span id="multiplier_cost">10</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="menu-toggle" onclick="toggleMenu()" style="cursor:pointer; color:white;">Shop</div>
-        <div id="side-menu" style="color: white; display:none;">
-            <button id="buy">Buy Multiplier</button>
-            <span id="multiplier_cost">10</span>
-        </div>
-        <canvas id="canvas">
-        </canvas>
-        <script src="assets/js/game/main.js"></script>
     </div>
+    <div id="menu-toggle" onclick="toggleMenu()" style="cursor:pointer;">Shop</div>
+    <script src="assets/js/game/main.js"></script>
 </body>
 
 </html>
