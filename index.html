@@ -5,30 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Improved meta description for SEO -->
-    <meta name="description" content="An engaging clicking game for endless fun. Upgrade your click power!">
-    <meta name="keywords" content="Clicking Game, Upgrade, Power, Fun">
+    <meta name="description" content="Clicking Game for bordom">
+    <meta name="keywords" content="Clicking Game">
     <meta name="author" content="lol.andrew">
-    <link rel="icon" type="image/x-icon" href="assets/imgs/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/imgs/favicon.ico" />
     <title>Clicking Game</title>
     <style>
-        /* Modernized styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #333;
-            color: white;
+            box-sizing: border-box;
+        }
+
+        .app-body {
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            background-color: #333;
+            color: white;
         }
 
         #root {
             text-align: center;
             width: 80%;
+            max-width: 600px;
         }
 
         #click_counter,
@@ -44,33 +46,54 @@
             z-index: 100;
             background-color: rgba(0, 0, 0, 0.8);
             border: none;
+            outline: none;
             border-radius: 5px;
             padding: 10px;
-            font-size: 16px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #menu-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        #side-menu {
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: none;
         }
 
         canvas {
             border: 1px solid white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 
-<body>
+<body class="app-body" style="background-color: black; overflow: hidden;">
     <div id="root">
-        <div id="click_counter">
-            <p>Clicks: <span id="clicks">0</span></p>
+        <div id="click_counter" style="color: white;">
+            <p>Clicks: <span id="clicks">0</span>
+
+            </p>
         </div>
-        <div id="multiplier">
+        <div id="multiplier" style="color: white;">
             <p>Multiplier: <span id="multiplier_value">1</span></p>
         </div>
-        <div id="menu-toggle" onclick="toggleMenu()">Shop</div>
-        <div id="side-menu" style="display:none;">
+        <div id="menu-toggle" onclick="toggleMenu()" style="cursor:pointer; color:white;">Shop</div>
+        <div id="side-menu" style="color: white; display:none;">
             <button id="buy">Buy Multiplier</button>
             <span id="multiplier_cost">10</span>
         </div>
-        <canvas id="canvas"></canvas>
+        <canvas id="canvas">
+        </canvas>
+        <script src="assets/js/game/main.js"></script>
     </div>
-    <script src="assets/js/game/main.js"></script>
 </body>
 
 </html>
